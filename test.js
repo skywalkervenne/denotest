@@ -44,7 +44,7 @@ function inspect_object(obj, prefix) {
     return Object.assign(result, deep);
 }
 
-let result = JSON.stringify(inspect_object(this))
+let result = JSON.stringify(inspect_object(globalThis))
 
 addEventListener('fetch', event => {
     //console.log(JSON.stringify(inspect_object(this)))
