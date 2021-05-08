@@ -1,11 +1,10 @@
-"use strict";
 function json_desc(desc, key, with_inspect) {
     let res = {
         writable: desc.writable,
         enumerable: desc.enumerable,
         configurable: desc.configurable,
         value: desc.value.toString(),
-    };
+    }
     if (with_inspect) {
         res["inspect"] = inspect_object(desc.value, key)
     }
@@ -45,11 +44,13 @@ function inspect_object(obj, prefix) {
     return Object.assign(result, deep);
 }
 
+let result = JSON.stringify(inspect_object(this))
+
 addEventListener('fetch', event => {
     //console.log(JSON.stringify(inspect_object(this)))
     event.respondWith(handleRequest(event.request))
 })
 
 async function handleRequest(request) {
-    return new Response(JSON.stringify(inspect_object(this)), { status: 200 })
+    return new Response(result, { status: 200 })
 }
