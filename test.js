@@ -4,7 +4,7 @@ function json_desc(desc, key, with_inspect) {
         enumerable: desc.enumerable,
         configurable: desc.configurable,
         value: desc.value.toString()
-    }
+    };
     if (with_inspect) {
         res["inspect"] = inspect_object(desc.value, key)
     }
