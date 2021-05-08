@@ -1,9 +1,10 @@
+"use strict";
 function json_desc(desc, key, with_inspect) {
     let res = {
         writable: desc.writable,
         enumerable: desc.enumerable,
         configurable: desc.configurable,
-        value: desc.value.toString()
+        value: desc.value.toString(),
     };
     if (with_inspect) {
         res["inspect"] = inspect_object(desc.value, key)
